@@ -10,6 +10,7 @@
     "@types/node": "^12.0.0",
     "@types/react": "^17.0.0",
     "@types/react-dom": "^17.0.0",
+    "electron-is-dev": "^2.0.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-scripts": "4.0.3",
@@ -17,10 +18,15 @@
     "web-vitals": "^1.0.1"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "start": "rescripts start",
+    "build": "rescripts build",
+    "test": "rescripts test",
+    "eject": "react-scripts eject",
+    "dev": "concurrently \"yarn start\" \"wait-on http://localhost:3000 && electron .\"",
+
+    "postinstall": "electron-builder install-app-deps",
+    "preelectron-pack": "yarn build",
+    "electron-pack": "electron-builder -w"
   },
   "eslintConfig": {
     "extends": [
@@ -39,5 +45,16 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  }
+  },
+  "devDependencies": {
+    "@rescripts/cli": "^0.0.16",
+    "@rescripts/rescript-env": "^0.0.14",
+    "concurrently": "^6.2.0",
+    "electron": "^13.1.7",
+    "electron-builder": "^22.11.7",
+    "wait-on": "^6.0.0"
+  },
+
+  "main": "public/electron.js",
+  "homepage": "./"
 }
