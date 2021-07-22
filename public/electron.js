@@ -1,4 +1,4 @@
-require('../src/message-control/main.js');
+require('./main');
 
 const electron = require('electron');
 const app = electron.app;

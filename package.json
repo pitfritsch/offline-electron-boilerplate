@@ -19,7 +19,7 @@
     "web-vitals": "^1.0.1"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "rescripts start",
     "build": "rescripts build",
     "test": "rescripts test",
     "eject": "react-scripts eject",
@@ -55,5 +55,9 @@
     "wait-on": "^6.0.0"
   },
   "main": "public/electron.js",
-  "homepage": "./"
+  "homepage": "./",
+
+  "build": {
+    
+  }
 }
