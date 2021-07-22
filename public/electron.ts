@@ -1,4 +1,4 @@
-require('./main');
+require('./main.ts');
 
 const electron = require('electron');
 const app = electron.app;
