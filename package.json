@@ -56,7 +56,7 @@
     "electron-builder": "^22.11.7",
     "wait-on": "^6.0.0"
   },
-  "main": "public/electron.ts",
+  "main": "public/electron.js",
   "homepage": "./",
   "build": {}
 }
