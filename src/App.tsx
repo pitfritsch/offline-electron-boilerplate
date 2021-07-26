@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import "reflect-metadata";
-import { createConnection } from 'typeorm';
+import { createConnection, getRepository } from 'typeorm';
 import './App.css';
 import { Contact } from './entities/Contact';
 import { Product } from './entities/Product';
@@ -17,6 +17,10 @@ function App() {
 
   const [message, setMessage] = useState<string>('');
   const [responses, setResponses] = useState<any[]>([]);
+
+  useEffect(() => {
+    createConnection(ConnectionObject).catch(console.error)
+  }, [])
 
   function send(sql: string) {
     sendAsync(sql).then((result: any[]) => {
@@ -41,18 +45,7 @@ function App() {
     contact.email = "email2"
     contact.phone = "fone2"
     
-    createConnection(ConnectionObject).then(async (conn) => {
-      console.log(conn)
-      try {
-
-        await conn.manager.save(product)
-
-      } catch (e) {
-        console.error("erro catch", e)
-      } finally {
-        conn.close()
-      }
-    }).catch(console.error)
+    getRepository(Product).save(product)
 
     setProducts(p => [ ...p, product ])
     setProductName("")
