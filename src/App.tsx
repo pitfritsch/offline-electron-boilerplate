@@ -6,6 +6,7 @@ import { Contact } from './entities/Contact';
 import { Product } from './entities/Product';
 import logo from './logo.svg';
 import { sendAsync } from './message-control/renderer';
+import ConnectionObject from './utils/connectionObject';
 
 
 function App() {
@@ -40,19 +41,13 @@ function App() {
     contact.email = "email2"
     contact.phone = "fone2"
     
-    createConnection({
-      "type": "sqlite",
-      "synchronize": true,
-      "logging": true,
-      "database": "db.sqlite3",
-      "entities": [
-        Product
-      ]
-    }).then(async (conn) => {
+    createConnection(ConnectionObject).then(async (conn) => {
       console.log(conn)
       try {
 
         await conn.manager.save(product)
+
+
         // console.log(await conn.manager.findOne(Contact))
 
       } catch (e) {
