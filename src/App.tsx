@@ -35,17 +35,25 @@ function App() {
     product.price = Number(productPrice);
 
     const contact = new Contact()
-    contact.first_name = "nome"
-    contact.last_name = "sobrenome"
-    contact.email = "email"
-    contact.phone = "fone"
+    contact.first_name = "Daniel"
+    contact.last_name = "Bergholz"
+    contact.email = "email2"
+    contact.phone = "fone2"
     
-    createConnection().then(async (conn) => {
+    createConnection({
+      "type": "sqlite",
+      "synchronize": true,
+      "logging": true,
+      "database": "db.sqlite3",
+      "entities": [
+        Contact
+      ]
+    }).then(async (conn) => {
       console.log(conn)
       try {
 
-        // await conn.manager.save(product)
-        console.log(await conn.manager.findOne(Contact))
+        await conn.manager.save(contact)
+        // console.log(await conn.manager.findOne(Contact))
 
       } catch (e) {
         console.error("erro catch", e)
