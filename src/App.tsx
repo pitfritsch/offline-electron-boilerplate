@@ -47,9 +47,6 @@ function App() {
 
         await conn.manager.save(product)
 
-
-        // console.log(await conn.manager.findOne(Contact))
-
       } catch (e) {
         console.error("erro catch", e)
       } finally {
