@@ -1,12 +1,12 @@
-import React, { useEffect, useState } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react';
 import "reflect-metadata";
-
-import { sendAsync } from './message-control/renderer';
-import { Product } from './entities/Product';
-import { Connection, createConnection } from 'typeorm';
+import { createConnection } from 'typeorm';
+import './App.css';
 import { Contact } from './entities/Contact';
+import { Product } from './entities/Product';
+import logo from './logo.svg';
+import { sendAsync } from './message-control/renderer';
+
 
 function App() {
 
