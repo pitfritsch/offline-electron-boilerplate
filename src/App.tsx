@@ -8,7 +8,6 @@ import logo from './logo.svg';
 import { sendAsync } from './message-control/renderer';
 import ConnectionObject from './utils/connectionObject';
 
-
 function App() {
 
   const [products, setProducts] = useState<Product[]>([]);
