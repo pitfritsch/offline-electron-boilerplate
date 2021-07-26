@@ -46,13 +46,13 @@ function App() {
       "logging": true,
       "database": "db.sqlite3",
       "entities": [
-        Contact
+        Product
       ]
     }).then(async (conn) => {
       console.log(conn)
       try {
 
-        await conn.manager.save(contact)
+        await conn.manager.save(product)
         // console.log(await conn.manager.findOne(Contact))
 
       } catch (e) {
