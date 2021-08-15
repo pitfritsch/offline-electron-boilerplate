@@ -83,7 +83,7 @@ function App() {
           onChange={(e) => setProductPrice(e.target.value)}
         />
         <button onClick={newProduct}>new product</button>
-        <br />
+        <hr />
         {products.map((product, index) => 
           <div key={index}>
             <span>{product.name}</span>
