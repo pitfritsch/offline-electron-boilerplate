@@ -7,8 +7,8 @@ Desktop project with Electron+React focused for Offline Apps, having SQLite Data
 To start coding run the codes:
 
 `git clone https://github.com/pitfritsch/offline-electron-boilerplate.git your-project-name`\
-`git remote rm origin`\
 `cd your-project-name`\
+`git remote rm origin`\
 `yarn`\
 `yarn dev`
 
